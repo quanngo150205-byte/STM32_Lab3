@@ -9,6 +9,9 @@
 #define INC_TRAFFIC_LIGHT_H_
 
 #include "main.h"
+#include "global.h"
+
+extern traffic_state trafState;
 
 /* Ham chuyen den duong 1*/
 void YellowToRed1();

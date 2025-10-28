@@ -7,6 +7,7 @@
 
 #include "traffic_light.h"
 
+traffic_state trafState = RED_GREEN;
 
 /* Ham chuyen den duong 1*/
 void YellowToRed1(){
