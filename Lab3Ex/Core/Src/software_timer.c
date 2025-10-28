@@ -7,35 +7,49 @@
 
 #include "software_timer.h"
 
-const int TIMER_SIZE = 1;
-int timer_counter[1] = {0};
-int timer_flag[1] = {0};
-int TIMER_CYCLE = 10;
 
-void setTimers(int duration){
-	for(int i = 0; i < TIMER_SIZE; ++i){
-		timer_counter[i] = duration / TIMER_CYCLE;
-		timer_flag[i] = 0;
-	}
+int timer_counter[TIMER_SIZE] = {0};
+int timer_flag[TIMER_SIZE] = {0};
+
+
+void setTimers(int duration) {
+    int ticks = duration / TIMER_CYCLE;
+    for (int i = 0; i < TIMER_SIZE; ++i) {
+        timer_counter[i] = ticks;
+        timer_flag[i] = 0;
+    }
 }
 
-void setTimer(int index, int duration){
-	switch (index){
-	case 0:
-		timer_counter[0] = duration / TIMER_CYCLE;
-		timer_flag[0] = 0;
-	default :
-		break;
-	}
+
+
+void setTimer(int index, int duration) {
+    if (index < 0 || index >= TIMER_SIZE) return;
+    timer_counter[index] = duration / TIMER_CYCLE;
+    timer_flag[index] = 0;
 }
 
-void timer_run(){
-	for (int i = 0; i < TIMER_SIZE; ++i){
-	    if (timer_counter[i] > 0) {
-	        timer_counter[i]--;
-	        if (timer_counter[i] <= 0) {
-	            timer_flag[i] = 1;
-	        }
-	    }
-	}
+
+void timer_run(void) {
+    for (int i = 0; i < TIMER_SIZE; ++i) {
+        if (timer_counter[i] > 0) {
+            timer_counter[i]--;
+            if (timer_counter[i] <= 0) {
+                timer_flag[i] = 1;
+            }
+        }
+    }
+}
+
+
+
+int isTimerExpired(int index) {
+    if (index < 0 || index >= TIMER_SIZE) return 0;
+    return timer_flag[index];
+}
+
+
+
+void resetTimerFlag(int index) {
+    if (index < 0 || index >= TIMER_SIZE) return;
+    timer_flag[index] = 0;
 }

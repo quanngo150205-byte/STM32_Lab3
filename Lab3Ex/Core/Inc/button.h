@@ -1,0 +1,25 @@
+/*
+ * button.h
+ *
+ *  Created on: Oct 15, 2025
+ *      Author: ngoqu
+ */
+
+#ifndef INC_BUTTON_H_
+#define INC_BUTTON_H_
+
+#include "main.h"
+
+#define MAX_BUTTONS     3      // Số lượng nút tối đa
+#define NORMAL_STATE    GPIO_PIN_SET
+#define PRESSED_STATE   GPIO_PIN_RESET
+
+
+void button_init(void);
+void getKeyInput(void);            // Gọi định kỳ trong ngắt timer (mỗi 10 ms)
+int  isButtonPressed(int);      // Phát hiện nhấn 1 lần
+int  isButtonLongPressed(int);    // Phát hiện nhấn giữ 1s
+int  isButtonReleased(int);      // Phát hiện nhấn thả (nhận tín hiệu khi thả nút)
+void subKeyProcess(int);        // Callback xử lý riêng cho từng nút (tùy bạn hiện thực)
+
+#endif /* INC_BUTTON_H_ */
