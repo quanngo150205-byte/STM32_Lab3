@@ -29,7 +29,7 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f1xx_hal.h"
-
+#include "global.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -64,8 +64,46 @@ void Error_Handler(void);
 #define BUTTON2_GPIO_Port GPIOC
 #define BUTTON3_Pin GPIO_PIN_15
 #define BUTTON3_GPIO_Port GPIOC
+#define LED_R_A_Pin GPIO_PIN_1
+#define LED_R_A_GPIO_Port GPIOA
+#define LED_Y_A_Pin GPIO_PIN_2
+#define LED_Y_A_GPIO_Port GPIOA
+#define LED_G_A_Pin GPIO_PIN_3
+#define LED_G_A_GPIO_Port GPIOA
+#define LED_R_B_Pin GPIO_PIN_4
+#define LED_R_B_GPIO_Port GPIOA
 #define LED_BLINK_Pin GPIO_PIN_5
 #define LED_BLINK_GPIO_Port GPIOA
+#define LED_Y_B_Pin GPIO_PIN_6
+#define LED_Y_B_GPIO_Port GPIOA
+#define LED_G_B_Pin GPIO_PIN_7
+#define LED_G_B_GPIO_Port GPIOA
+#define A_Pin GPIO_PIN_0
+#define A_GPIO_Port GPIOB
+#define B_Pin GPIO_PIN_1
+#define B_GPIO_Port GPIOB
+#define C_Pin GPIO_PIN_2
+#define C_GPIO_Port GPIOB
+#define LED_R_C_Pin GPIO_PIN_8
+#define LED_R_C_GPIO_Port GPIOA
+#define LED_Y_C_Pin GPIO_PIN_9
+#define LED_Y_C_GPIO_Port GPIOA
+#define LED_G_C_Pin GPIO_PIN_10
+#define LED_G_C_GPIO_Port GPIOA
+#define LED_R_D_Pin GPIO_PIN_11
+#define LED_R_D_GPIO_Port GPIOA
+#define LED_Y_D_Pin GPIO_PIN_12
+#define LED_Y_D_GPIO_Port GPIOA
+#define LED_G_D_Pin GPIO_PIN_13
+#define LED_G_D_GPIO_Port GPIOA
+#define D_Pin GPIO_PIN_3
+#define D_GPIO_Port GPIOB
+#define E_Pin GPIO_PIN_4
+#define E_GPIO_Port GPIOB
+#define F_Pin GPIO_PIN_5
+#define F_GPIO_Port GPIOB
+#define G_Pin GPIO_PIN_6
+#define G_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
