@@ -3,4 +3,3 @@ button.c:41:6:getKeyInput	16	static
 button.c:79:5:isButtonPressed	16	static
 button.c:91:5:isButtonLongPressed	16	static
 button.c:103:5:isButtonReleased	16	static
-button.c:112:13:subKeyProcess	16	static

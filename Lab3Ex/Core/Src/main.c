@@ -19,7 +19,9 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-
+#include "global.h"
+#include "fsm_menu.h"
+#include "fsm_automatic.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -97,12 +99,7 @@ int main(void)
   button_init();
   while (1)
   {
-	  if (isButtonReleased(0) == 1){
-		  HAL_GPIO_TogglePin(GPIOA, LED_BLINK_Pin);
-	  }
-	  if (isButtonLongPressed(0) == 1){
-		  HAL_GPIO_TogglePin(GPIOA, LED_BLINK_Pin);
-	  }
+	  fsm_menu_run();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

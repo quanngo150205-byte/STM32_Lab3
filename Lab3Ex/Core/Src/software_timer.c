@@ -13,7 +13,7 @@ int timer_flag[TIMER_SIZE] = {0};
 
 
 void setTimers(int duration) {
-    int ticks = duration / TIMER_CYCLE;
+    int ticks = duration / TICK;
     for (int i = 0; i < TIMER_SIZE; ++i) {
         timer_counter[i] = ticks;
         timer_flag[i] = 0;
@@ -24,7 +24,7 @@ void setTimers(int duration) {
 
 void setTimer(int index, int duration) {
     if (index < 0 || index >= TIMER_SIZE) return;
-    timer_counter[index] = duration / TIMER_CYCLE;
+    timer_counter[index] = duration / TICK;
     timer_flag[index] = 0;
 }
 
@@ -52,4 +52,10 @@ int isTimerExpired(int index) {
 void resetTimerFlag(int index) {
     if (index < 0 || index >= TIMER_SIZE) return;
     timer_flag[index] = 0;
+}
+
+
+int getTimerCounter(int index){
+    if (index < 0 || index >= TIMER_SIZE) return 0;
+    return timer_counter[index];
 }

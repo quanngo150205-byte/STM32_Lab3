@@ -11,7 +11,7 @@
 // Cấu trúc lưu trạng thái cho từng nút
 // =============================
 static GPIO_TypeDef* buttonPorts[MAX_BUTTONS] = {GPIOC, GPIOC, GPIOC};
-static uint16_t buttonPins[MAX_BUTTONS]      = {BUTTON1_Pin, BUTTON2_Pin, BUTTON3_Pin};
+static uint16_t buttonPins[MAX_BUTTONS]       = {BUTTON1_Pin, BUTTON2_Pin, BUTTON3_Pin};
 
 // Bộ nhớ trạng thái cho debounce
 static int KeyReg0[MAX_BUTTONS];
@@ -55,7 +55,7 @@ void getKeyInput(void) {
                 //nếu nút mới được nhấn
                 if (KeyReg2[i] == PRESSED_STATE) {
                     button_flag[i] = 1;
-                    TimerForKeyPress[i] = 100;
+                    TimerForKeyPress[i] = DURATION_FOR_AUTO_INCREASING;
                 }
             } else {
                 // Nếu nút đang được giữ
@@ -64,7 +64,7 @@ void getKeyInput(void) {
                         TimerForKeyPress[i]--;
                         if (TimerForKeyPress[i] <= 0) {
                             button_longPress_flag[i] = 1; // báo nhấn giữ lâu
-                            TimerForKeyPress[i] = 50;
+                            TimerForKeyPress[i] = DURATION_FOR_AUTO_INCREASING / 2;
                         }
                     }
                 }
@@ -109,7 +109,3 @@ int isButtonReleased(int index){
     return 0;
 }
 
-__weak void subKeyProcess(int index) {
-    // Mặc định không làm gì
-    // Có thể định nghĩa lại hàm này ở file khác để xử lý sự kiện riêng cho từng nút
-}

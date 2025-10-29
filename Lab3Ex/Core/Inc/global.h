@@ -13,11 +13,6 @@
 #define MANUAL 2
 #define CONFIG 3
 
-typedef enum {
-		RED_GREEN, RED_YELLOW, GREEN_RED, YELLOW_RED
-}traffic_state;
-
-
 #include "software_timer.h"
 #include "button.h"
 
