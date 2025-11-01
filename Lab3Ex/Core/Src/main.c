@@ -21,7 +21,7 @@
 #include "main.h"
 #include "global.h"
 #include "fsm_menu.h"
-#include "fsm_automatic.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -98,6 +98,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   button_init();
   status = INIT;
+  setTimers(1000);
   while (1)
   {
 	  fsm_menu_run();
@@ -209,8 +210,10 @@ static void MX_GPIO_Init(void)
                           |LED_G_D_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, A_Pin|B_Pin|C_Pin|D_Pin
-                          |E_Pin|F_Pin|G_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, A_Pin|B_Pin|C_Pin|D1_Pin
+                          |E1_Pin|F1_Pin|G1_Pin|EN0_Pin
+                          |EN1_Pin|D_Pin|E_Pin|F_Pin
+                          |G_Pin|A1_Pin|B1_Pin|C1_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : BUTTON1_Pin BUTTON2_Pin BUTTON3_Pin */
   GPIO_InitStruct.Pin = BUTTON1_Pin|BUTTON2_Pin|BUTTON3_Pin;
@@ -231,10 +234,14 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : A_Pin B_Pin C_Pin D_Pin
-                           E_Pin F_Pin G_Pin */
-  GPIO_InitStruct.Pin = A_Pin|B_Pin|C_Pin|D_Pin
-                          |E_Pin|F_Pin|G_Pin;
+  /*Configure GPIO pins : A_Pin B_Pin C_Pin D1_Pin
+                           E1_Pin F1_Pin G1_Pin EN0_Pin
+                           EN1_Pin D_Pin E_Pin F_Pin
+                           G_Pin A1_Pin B1_Pin C1_Pin */
+  GPIO_InitStruct.Pin = A_Pin|B_Pin|C_Pin|D1_Pin
+                          |E1_Pin|F1_Pin|G1_Pin|EN0_Pin
+                          |EN1_Pin|D_Pin|E_Pin|F_Pin
+                          |G_Pin|A1_Pin|B1_Pin|C1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;

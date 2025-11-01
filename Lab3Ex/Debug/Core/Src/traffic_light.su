@@ -4,5 +4,4 @@ traffic_light.c:25:6:GreenToYellow1	8	static
 traffic_light.c:33:6:YellowToRed2	8	static
 traffic_light.c:39:6:RedToGreen2	8	static
 traffic_light.c:45:6:GreenToYellow2	8	static
-traffic_light.c:53:6:displayDigit	16	static
-traffic_light.c:157:6:clearAllLed	8	static
+traffic_light.c:53:6:clearAllLed	8	static

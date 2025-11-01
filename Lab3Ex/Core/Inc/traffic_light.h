@@ -27,7 +27,6 @@ void YellowToRed2();
 void RedToGreen2();
 void GreenToYellow2();
 
-void displayDigit(int);
 void clearAllLed();
 
 #endif /* INC_TRAFFIC_LIGHT_H_ */

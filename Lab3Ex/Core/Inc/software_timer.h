@@ -9,12 +9,12 @@
 #define INC_SOFTWARE_TIMER_H_
 
 
-#define TIMER_SIZE   5     // Số lượng timer
+#define TIMER_SIZE   6     // Số lượng timer
 #define TICK  10     // Chu kỳ timer tick (ms), tương ứng chu kỳ ngắt
 
 
-int timer_counter[TIMER_SIZE];
-int timer_flag[TIMER_SIZE];
+extern int timer_counter[TIMER_SIZE];
+extern int timer_flag[TIMER_SIZE];
 
 
 void setTimers(int);           		 // Đặt cùng 1 thời gian cho tất cả timer
