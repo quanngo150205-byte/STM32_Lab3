@@ -43,11 +43,12 @@ void fsm_menu_run(){
 		}
 		if (isButtonPressed(0)){
 			status = MANUAL;
+			clearAllLed();
+			clear7Seg();
+			resetState();
 		}
 		break;
 	case MANUAL:
-		clearAllLed();
-		clear7Seg();
 		fsm_manual_run();
 		if (isTimerExpired(0)){
 			HAL_GPIO_TogglePin(GPIOA, LED_BLINK_Pin);
@@ -55,6 +56,9 @@ void fsm_menu_run(){
 		}
 		if (isButtonPressed(0)){
 			status = CONFIG;
+			clearAllLed();
+			clear7Seg();
+			resetState();
 		}
 		break;
 	case CONFIG:

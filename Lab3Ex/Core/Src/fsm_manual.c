@@ -17,8 +17,8 @@ void trafficLight_run(){
 		case START:
 			if (status == MANUAL){
 				trafState = RED_GREEN;
-				setTimer(1, red_time);
-				setTimer(2, green_time);
+				setTimer(1, red_time * 1000);
+				setTimer(2, green_time * 1000);
 				setTimer(4, 10);
 				setTimer(5, 10);
 			}
@@ -36,7 +36,7 @@ void trafficLight_run(){
 			}
 			if (isTimerExpired(2)){
 				trafState = RED_YELLOW;
-				setTimer(2, yellow_time);
+				setTimer(2, yellow_time * 1000);
 			}
 			break;
 		case RED_YELLOW:
@@ -51,8 +51,8 @@ void trafficLight_run(){
 			}
 			if (isTimerExpired(1)){
 				trafState = GREEN_RED;
-				setTimer(1, green_time);
-				setTimer(2, red_time);
+				setTimer(1, green_time * 1000);
+				setTimer(2, red_time * 1000);
 			}
 			break;
 		case GREEN_RED:
@@ -68,7 +68,7 @@ void trafficLight_run(){
 			}
 			if (isTimerExpired(1)){
 				trafState = YELLOW_RED;
-				setTimer(1, yellow_time);
+				setTimer(1, yellow_time * 1000);
 			}
 			break;
 		case YELLOW_RED:
@@ -83,8 +83,8 @@ void trafficLight_run(){
 			}
 			if (isTimerExpired(1)){
 				trafState = RED_GREEN;
-				setTimer(1, red_time);
-				setTimer(2, green_time);
+				setTimer(1, red_time * 1000);
+				setTimer(2, green_time * 1000);
 			}
 			break;
 		default:
@@ -166,7 +166,7 @@ void fsm_manual_run(){
 		if (isButtonDoubleClicked(2)){
 			HAL_GPIO_WritePin(GPIOA, LED_G_A_Pin|LED_G_B_Pin|LED_G_C_Pin|LED_G_D_Pin, GPIO_PIN_SET);
 			man_state = MAN_RUN;
-			setTimer(3, 250);
+			trafState = START;
 		}
 		break;
 	case MAN_RUN:
