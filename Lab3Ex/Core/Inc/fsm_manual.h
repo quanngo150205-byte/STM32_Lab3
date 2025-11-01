@@ -27,7 +27,7 @@
 int red_time;
 int yellow_time;
 int green_time;
-int man_state;
+extern int man_state;
 
 void fsm_manual_run();
 

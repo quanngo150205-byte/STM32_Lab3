@@ -17,7 +17,7 @@ void trafficLight_run(){
 		case START:
 			if (status == MANUAL){
 				trafState = RED_GREEN;
-				setTimer(1, green_time + yellow_time);
+				setTimer(1, red_time);
 				setTimer(2, green_time);
 				setTimer(4, 10);
 				setTimer(5, 10);
@@ -52,7 +52,7 @@ void trafficLight_run(){
 			if (isTimerExpired(1)){
 				trafState = GREEN_RED;
 				setTimer(1, green_time);
-				setTimer(2, green_time + yellow_time);
+				setTimer(2, red_time);
 			}
 			break;
 		case GREEN_RED:
@@ -83,7 +83,7 @@ void trafficLight_run(){
 			}
 			if (isTimerExpired(1)){
 				trafState = RED_GREEN;
-				setTimer(1, green_time + yellow_time);
+				setTimer(1, red_time);
 				setTimer(2, green_time);
 			}
 			break;
@@ -99,8 +99,11 @@ void fsm_manual_run(){
 			HAL_GPIO_TogglePin(GPIOA, LED_R_A_Pin|LED_R_B_Pin|LED_R_C_Pin|LED_R_D_Pin);
 			setTimer(3, 250);
 		}
+		if (isTimerExpired(5)){
+			updateTimerBuffer(red_time * 100, (MAN_RED - 10) * 100);
+			setTimer(5, 500);
+		}
 		if (isTimerExpired(4)){
-			updateTimerBuffer(red_time, MAN_RED - 10);
 			display7SegLed();
 			setTimer(4, 80);
 		}
@@ -121,8 +124,11 @@ void fsm_manual_run(){
 			HAL_GPIO_TogglePin(GPIOA, LED_Y_A_Pin|LED_Y_B_Pin|LED_Y_C_Pin|LED_Y_D_Pin);
 			setTimer(3, 250);
 		}
+		if (isTimerExpired(5)){
+			updateTimerBuffer(yellow_time * 100, (MAN_YELLOW - 10) * 100);
+			setTimer(5, 500);
+		}
 		if (isTimerExpired(4)){
-			updateTimerBuffer(yellow_time, MAN_YELLOW - 10);
 			display7SegLed();
 			setTimer(4, 80);
 		}
@@ -143,8 +149,11 @@ void fsm_manual_run(){
 			HAL_GPIO_TogglePin(GPIOA, LED_G_A_Pin|LED_G_B_Pin|LED_G_C_Pin|LED_G_D_Pin);
 			setTimer(3, 250);
 		}
+		if (isTimerExpired(5)){
+			updateTimerBuffer(green_time * 100, (MAN_GREEN - 10) * 100);
+			setTimer(5, 500);
+		}
 		if (isTimerExpired(4)){
-			updateTimerBuffer(yellow_time, MAN_GREEN - 10);
 			display7SegLed();
 			setTimer(4, 80);
 		}

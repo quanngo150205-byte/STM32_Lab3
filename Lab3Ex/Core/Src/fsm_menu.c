@@ -46,6 +46,8 @@ void fsm_menu_run(){
 		}
 		break;
 	case MANUAL:
+		clearAllLed();
+		clear7Seg();
 		fsm_manual_run();
 		if (isTimerExpired(0)){
 			HAL_GPIO_TogglePin(GPIOA, LED_BLINK_Pin);

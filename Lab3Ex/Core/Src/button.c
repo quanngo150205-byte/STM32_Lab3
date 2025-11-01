@@ -71,10 +71,9 @@ void getKeyInput(void) {
             	}
 
 
-                //nếu nút mới được nhấn
+                //xử lý nhấn đơn nhưng không set flag vì chưa biết có nhấn đúp hay không
                 KeyReg3[i] = KeyReg2[i];
                 if (KeyReg2[i] == PRESSED_STATE) {
-                    button_flag[i] = 1;
                     TimerForKeyPress[i] = DURATION_FOR_AUTO_INCREASING;
                 }
             } else {
@@ -95,6 +94,9 @@ void getKeyInput(void) {
                 doubleClickTimer[i]--;
                 if (doubleClickTimer[i] == 0) {
                     // Nếu hết thời gian mà chưa có nhấn thứ 2 -> chỉ là single click
+                	if (button_click_count[i] == 1) {
+                	    button_flag[i] = 1;
+                	}
                     button_click_count[i] = 0;
                 }
             }
