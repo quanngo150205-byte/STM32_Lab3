@@ -9,6 +9,7 @@
 
 void resetState(){
 	trafState = START;
+	man_state = MAN_RED;
 }
 
 void fsm_menu_run(){

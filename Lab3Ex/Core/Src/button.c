@@ -23,6 +23,11 @@ static int button_flag[MAX_BUTTONS];
 static int button_longPress_flag[MAX_BUTTONS];
 static int button_release_flag[MAX_BUTTONS];
 
+//xu ly double click
+static int button_doubleClick_flag[MAX_BUTTONS];
+static int button_click_count[MAX_BUTTONS];
+static int doubleClickTimer[MAX_BUTTONS];
+
 
 void button_init(void) {
     for (int i = 0; i < MAX_BUTTONS; i++) {
@@ -32,6 +37,9 @@ void button_init(void) {
         button_flag[i] = 0;
         button_longPress_flag[i] = 0;
         button_release_flag[i] = 0;
+        button_doubleClick_flag[i] = 0;
+        button_click_count[i] = 0;
+        doubleClickTimer[i] = 0;
     }
 }
 
@@ -49,10 +57,22 @@ void getKeyInput(void) {
             	//nếu nút mới được thả
             	if (KeyReg3[i] == PRESSED_STATE && KeyReg2[i] == NORMAL_STATE){
             		button_release_flag[i] = 1;
+
+
+            	//xử lý double click
+            		button_click_count[i]++;
+            		if (button_click_count[i] == 1) {
+            		    doubleClickTimer[i] = DOUBLE_CLICK_INTERVAL;
+            		} else if (button_click_count[i] == 2) {
+            		    button_doubleClick_flag[i] = 1;
+            		    button_click_count[i] = 0;
+            	        doubleClickTimer[i] = 0;
+            		}
             	}
 
-                KeyReg3[i] = KeyReg2[i];
+
                 //nếu nút mới được nhấn
+                KeyReg3[i] = KeyReg2[i];
                 if (KeyReg2[i] == PRESSED_STATE) {
                     button_flag[i] = 1;
                     TimerForKeyPress[i] = DURATION_FOR_AUTO_INCREASING;
@@ -67,6 +87,15 @@ void getKeyInput(void) {
                             TimerForKeyPress[i] = DURATION_FOR_AUTO_INCREASING / 2;
                         }
                     }
+                }
+            }
+
+            // Đếm ngược double click timer
+            if (doubleClickTimer[i] > 0) {
+                doubleClickTimer[i]--;
+                if (doubleClickTimer[i] == 0) {
+                    // Nếu hết thời gian mà chưa có nhấn thứ 2 -> chỉ là single click
+                    button_click_count[i] = 0;
                 }
             }
         }
@@ -104,6 +133,19 @@ int isButtonReleased(int index){
     if (index < 0 || index >= MAX_BUTTONS) return 0;
     if (button_release_flag[index] == 1) {
         button_release_flag[index] = 0;
+        return 1;
+    }
+    return 0;
+}
+
+
+// =============================
+// Kiểm tra nhấn đúp (double click)
+// =============================
+int isButtonDoubleClicked(int index) {
+    if (index < 0 || index >= MAX_BUTTONS) return 0;
+    if (button_doubleClick_flag[index] == 1) {
+        button_doubleClick_flag[index] = 0;
         return 1;
     }
     return 0;

@@ -33,17 +33,14 @@ void fsm_automatic_run(){
 	case RED_GREEN:
 		YellowToRed1();
 		RedToGreen2();
-
 		if (isTimerExpired(5)){
-			updateTimeBuffer(getTimerCounter(1), getTimerCounter(2));
+			updateTimerBuffer(getTimerCounter(1), getTimerCounter(2));
 			setTimer(5, 500);
 		}
-
 		if (isTimerExpired(4)){
-			displayCountdown();
+			display7SegLed();
 			setTimer(4, 80);
 		}
-
 		if (isTimerExpired(2)){
 			trafState = RED_YELLOW;
 			setTimer(2, YELLOW_TIME);
@@ -51,17 +48,14 @@ void fsm_automatic_run(){
 		break;
 	case RED_YELLOW:
 		GreenToYellow2();
-
 		if (isTimerExpired(5)){
-			updateTimeBuffer(getTimerCounter(1), getTimerCounter(2));
+			updateTimerBuffer(getTimerCounter(1), getTimerCounter(2));
 			setTimer(5, 500);
 		}
-
 		if (isTimerExpired(4)){
-			displayCountdown();
+			display7SegLed();
 			setTimer(4, 80);
 		}
-
 		if (isTimerExpired(1)){
 			trafState = GREEN_RED;
 			setTimer(1, GREEN_TIME);
@@ -71,17 +65,14 @@ void fsm_automatic_run(){
 	case GREEN_RED:
 		RedToGreen1();
 		YellowToRed2();
-
 		if (isTimerExpired(5)){
-			updateTimeBuffer(getTimerCounter(1), getTimerCounter(2));
+			updateTimerBuffer(getTimerCounter(1), getTimerCounter(2));
 			setTimer(5, 500);
 		}
-
 		if (isTimerExpired(4)){
-			displayCountdown();
+			display7SegLed();
 			setTimer(4, 80);
 		}
-
 		if (isTimerExpired(1)){
 			trafState = YELLOW_RED;
 			setTimer(1, YELLOW_TIME);
@@ -89,17 +80,14 @@ void fsm_automatic_run(){
 		break;
 	case YELLOW_RED:
 		GreenToYellow1();
-
 		if (isTimerExpired(5)){
-			updateTimeBuffer(getTimerCounter(1), getTimerCounter(2));
+			updateTimerBuffer(getTimerCounter(1), getTimerCounter(2));
 			setTimer(5, 500);
 		}
-
 		if (isTimerExpired(4)){
-			displayCountdown();
+			display7SegLed();
 			setTimer(4, 80);
 		}
-
 		if (isTimerExpired(1)){
 			trafState = RED_GREEN;
 			setTimer(1, GREEN_TIME + YELLOW_TIME);

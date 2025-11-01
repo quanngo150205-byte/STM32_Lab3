@@ -8,32 +8,32 @@
 #include "7seg.h"
 
 int currentEN = 0;
-int time_buffer[NUM_OF_7SEG_LED] = {0};
+int timer_buffer[NUM_OF_7SEG_LED] = {0};
 
-void displayCountdown(){
+void display7SegLed(){
 	if(currentEN == 0){
-		displayDigit1(time_buffer[0]);
-		displayDigit2(time_buffer[1]);
+		displayDigit1(timer_buffer[0]);
+		displayDigit2(timer_buffer[1]);
 		HAL_GPIO_WritePin(GPIOB, EN0_Pin, GPIO_PIN_RESET);
 		HAL_GPIO_WritePin(GPIOB, EN1_Pin, GPIO_PIN_SET);
 		currentEN = 1;
 	}
 	else {
-		displayDigit1(time_buffer[2]);
-		displayDigit2(time_buffer[3]);
+		displayDigit1(timer_buffer[2]);
+		displayDigit2(timer_buffer[3]);
 		HAL_GPIO_WritePin(GPIOB, EN0_Pin, GPIO_PIN_SET);
 		HAL_GPIO_WritePin(GPIOB, EN1_Pin, GPIO_PIN_RESET);
 		currentEN = 0;
 	}
 }
 
-void updateTimeBuffer(int counter1, int counter2){
+void updateTimerBuffer(int counter1, int counter2){
 	int sec1 = counter1 / 100;
 	int sec2 = counter2 / 100;
-	time_buffer[0] = sec1 / 10;
-	time_buffer[1] = sec1 % 10;
-	time_buffer[2] = sec2 / 10;
-	time_buffer[3] = sec2 % 10;
+	timer_buffer[0] = sec1 / 10;
+	timer_buffer[1] = sec1 % 10;
+	timer_buffer[2] = sec2 / 10;
+	timer_buffer[3] = sec2 % 10;
 }
 
 void clear7Seg(){

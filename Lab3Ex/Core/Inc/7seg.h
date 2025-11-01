@@ -13,12 +13,12 @@
 #include "traffic_light.h"
 
 int currentEN;
-int time_buffer[NUM_OF_7SEG_LED];
+int timer_buffer[NUM_OF_7SEG_LED];
 
-void updateTimeBuffer(int,int);
+void updateTimerBuffer(int,int);
 void displayDigit1(int);
 void displayDigit2(int);
 void clear7Seg();
-void displayCountdown();
+void display7SegLed();
 
 #endif /* INC_7SEG_H_ */

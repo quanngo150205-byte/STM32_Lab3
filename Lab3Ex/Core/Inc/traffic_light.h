@@ -8,12 +8,13 @@
 #ifndef INC_TRAFFIC_LIGHT_H_
 #define INC_TRAFFIC_LIGHT_H_
 
+#include "main.h"
+#include "global.h"
+
+
 typedef enum {
 		START, RED_GREEN, RED_YELLOW, GREEN_RED, YELLOW_RED
 }traffic_state;
-
-#include "main.h"
-#include "global.h"
 
 extern traffic_state trafState;
 
