@@ -97,6 +97,7 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   button_init();
+  status = INIT;
   while (1)
   {
 	  fsm_menu_run();

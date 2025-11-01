@@ -8,10 +8,10 @@
 #ifndef INC_GLOBAL_H_
 #define INC_GLOBAL_H_
 
-#define INIT   0
-#define AUTO   1
-#define MANUAL 2
-#define CONFIG 3
+#define INIT   1
+#define AUTO   2
+#define MANUAL 3
+#define CONFIG 4
 
 #include "software_timer.h"
 #include "button.h"
