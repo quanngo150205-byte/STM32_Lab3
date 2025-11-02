@@ -11,7 +11,7 @@ int currentEN = 0;
 int timer_buffer[NUM_OF_7SEG_LED] = {0};
 
 void display7SegLed(){
-	if(currentEN == 0){
+	if (currentEN == 0){
 		displayDigit1(timer_buffer[0]);
 		displayDigit2(timer_buffer[1]);
 		HAL_GPIO_WritePin(GPIOB, EN0_Pin, GPIO_PIN_RESET);

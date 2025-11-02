@@ -17,5 +17,7 @@
 #include "button.h"
 
 extern int status;
+extern int man_state;
+extern int conf_state;
 
 #endif /* INC_GLOBAL_H_ */

@@ -14,82 +14,82 @@ int man_state = MAN_RED;
 
 void trafficLight_run(){
 	switch (trafState){
-		case START:
-			if (status == MANUAL){
-				trafState = RED_GREEN;
-				setTimer(1, red_time * 1000);
-				setTimer(2, green_time * 1000);
-				setTimer(4, 10);
-				setTimer(5, 10);
-			}
-			break;
-		case RED_GREEN:
-			YellowToRed1();
-			RedToGreen2();
-			if (isTimerExpired(5)){
-				updateTimerBuffer(getTimerCounter(1), getTimerCounter(2));
-				setTimer(5, 500);
-			}
-			if (isTimerExpired(4)){
-				display7SegLed();
-				setTimer(4, 80);
-			}
-			if (isTimerExpired(2)){
-				trafState = RED_YELLOW;
-				setTimer(2, yellow_time * 1000);
-			}
-			break;
-		case RED_YELLOW:
-			GreenToYellow2();
-			if (isTimerExpired(5)){
-				updateTimerBuffer(getTimerCounter(1), getTimerCounter(2));
-				setTimer(5, 500);
-			}
-			if (isTimerExpired(4)){
-				display7SegLed();
-				setTimer(4, 80);
-			}
-			if (isTimerExpired(1)){
-				trafState = GREEN_RED;
-				setTimer(1, green_time * 1000);
-				setTimer(2, red_time * 1000);
-			}
-			break;
-		case GREEN_RED:
-			RedToGreen1();
-			YellowToRed2();
-			if (isTimerExpired(5)){
-				updateTimerBuffer(getTimerCounter(1), getTimerCounter(2));
-				setTimer(5, 500);
-			}
-			if (isTimerExpired(4)){
-				display7SegLed();
-				setTimer(4, 80);
-			}
-			if (isTimerExpired(1)){
-				trafState = YELLOW_RED;
-				setTimer(1, yellow_time * 1000);
-			}
-			break;
-		case YELLOW_RED:
-			GreenToYellow1();
-			if (isTimerExpired(5)){
-				updateTimerBuffer(getTimerCounter(1), getTimerCounter(2));
-				setTimer(5, 500);
-			}
-			if (isTimerExpired(4)){
-				display7SegLed();
-				setTimer(4, 80);
-			}
-			if (isTimerExpired(1)){
-				trafState = RED_GREEN;
-				setTimer(1, red_time * 1000);
-				setTimer(2, green_time * 1000);
-			}
-			break;
-		default:
-			break;
+	case START:
+		if (status == MANUAL){
+			trafState = RED_GREEN;
+			setTimer(1, red_time * 1000);
+			setTimer(2, green_time * 1000);
+			setTimer(4, 10);
+			setTimer(5, 10);
 		}
+		break;
+	case RED_GREEN:
+		YellowToRed1();
+		RedToGreen2();
+		if (isTimerExpired(5)){
+			updateTimerBuffer(getTimerCounter(1), getTimerCounter(2));
+			setTimer(5, 500);
+		}
+		if (isTimerExpired(4)){
+			display7SegLed();
+			setTimer(4, 80);
+		}
+		if (isTimerExpired(2)){
+			trafState = RED_YELLOW;
+			setTimer(2, yellow_time * 1000);
+		}
+		break;
+	case RED_YELLOW:
+		GreenToYellow2();
+		if (isTimerExpired(5)){
+			updateTimerBuffer(getTimerCounter(1), getTimerCounter(2));
+			setTimer(5, 500);
+		}
+		if (isTimerExpired(4)){
+			display7SegLed();
+			setTimer(4, 80);
+		}
+		if (isTimerExpired(1)){
+			trafState = GREEN_RED;
+			setTimer(1, green_time * 1000);
+			setTimer(2, red_time * 1000);
+		}
+		break;
+	case GREEN_RED:
+		RedToGreen1();
+		YellowToRed2();
+		if (isTimerExpired(5)){
+			updateTimerBuffer(getTimerCounter(1), getTimerCounter(2));
+			setTimer(5, 500);
+		}
+		if (isTimerExpired(4)){
+			display7SegLed();
+			setTimer(4, 80);
+		}
+		if (isTimerExpired(1)){
+			trafState = YELLOW_RED;
+			setTimer(1, yellow_time * 1000);
+		}
+		break;
+	case YELLOW_RED:
+		GreenToYellow1();
+		if (isTimerExpired(5)){
+			updateTimerBuffer(getTimerCounter(1), getTimerCounter(2));
+			setTimer(5, 500);
+		}
+		if (isTimerExpired(4)){
+			display7SegLed();
+			setTimer(4, 80);
+		}
+		if (isTimerExpired(1)){
+			trafState = RED_GREEN;
+			setTimer(1, red_time * 1000);
+			setTimer(2, green_time * 1000);
+		}
+		break;
+	default:
+		break;
+	}
 }
 
 void fsm_manual_run(){

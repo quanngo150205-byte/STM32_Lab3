@@ -12,9 +12,6 @@
 #include "global.h"
 #include "traffic_light.h"
 
-int currentEN;
-int timer_buffer[NUM_OF_7SEG_LED];
-
 void updateTimerBuffer(int,int);
 void displayDigit1(int);
 void displayDigit2(int);

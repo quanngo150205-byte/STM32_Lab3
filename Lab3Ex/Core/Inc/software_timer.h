@@ -13,10 +13,6 @@
 #define TICK  10     // Chu kỳ timer tick (ms), tương ứng chu kỳ ngắt
 
 
-extern int timer_counter[TIMER_SIZE];
-extern int timer_flag[TIMER_SIZE];
-
-
 void setTimers(int);           		 // Đặt cùng 1 thời gian cho tất cả timer
 void setTimer(int, int); 			 // Đặt thời gian cho 1 timer
 void timer_run(void);                // Gọi định kỳ trong ngắt timer

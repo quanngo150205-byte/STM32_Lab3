@@ -24,11 +24,6 @@
 #include "7seg.h"
 #include "traffic_light.h"
 
-int red_time;
-int yellow_time;
-int green_time;
-extern int man_state;
-
 void fsm_manual_run();
 
 #endif /* INC_FSM_MANUAL_H_ */
