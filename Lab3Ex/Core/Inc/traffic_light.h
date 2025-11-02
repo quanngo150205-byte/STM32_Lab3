@@ -13,7 +13,7 @@
 
 
 typedef enum {
-		START, RED_GREEN, RED_YELLOW, GREEN_RED, YELLOW_RED
+		START, RED_GREEN, RED_YELLOW, GREEN_RED, YELLOW_RED, RED_GREENBLINK, GREENBLINK_RED
 }traffic_state;
 
 extern traffic_state trafState;

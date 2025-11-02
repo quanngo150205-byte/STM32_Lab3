@@ -50,16 +50,31 @@ void confTraffic_run(){
 		if (status == CONFIG && isButtonPressed(1)){
 			trafState = RED_GREEN;
 			setTimer(2, 80);
+			setTimer(1, 250);
 		}
 		break;
 	case RED_GREEN:
 		YellowToRed1();
 		RedToGreen2();
-		if (isButtonLongPressed(1)){
+		if (isButtonPressed(1)){
+			trafState = RED_GREENBLINK;
+		}
+		if (isTimerExpired(2)){
+			display7SegConfigMode();
+			setTimer(2, 80);
+		}
+		break;
+	case RED_GREENBLINK:
+		if (isTimerExpired(1)){
 			HAL_GPIO_TogglePin(GPIOA, LED_G_B_Pin|LED_G_D_Pin);
+			setTimer(1, 250);
 		}
 		if (isButtonPressed(1)){
 			trafState = RED_YELLOW;
+		}
+		if (isTimerExpired(2)){
+			display7SegConfigMode();
+			setTimer(2, 80);
 		}
 		break;
 	case RED_YELLOW:
@@ -67,21 +82,43 @@ void confTraffic_run(){
 		if (isButtonPressed(1)){
 			trafState = GREEN_RED;
 		}
+		if (isTimerExpired(2)){
+			display7SegConfigMode();
+			setTimer(2, 80);
+		}
 		break;
 	case GREEN_RED:
-		RedToGreen1();
 		YellowToRed2();
-		if (isButtonLongPressed(1)){
+		RedToGreen1();
+		if (isButtonPressed(1)){
+			trafState = GREENBLINK_RED;
+		}
+		if (isTimerExpired(2)){
+			display7SegConfigMode();
+			setTimer(2, 80);
+		}
+		break;
+	case GREENBLINK_RED:
+		if (isTimerExpired(1)){
 			HAL_GPIO_TogglePin(GPIOA, LED_G_A_Pin|LED_G_C_Pin);
+			setTimer(1, 250);
 		}
 		if (isButtonPressed(1)){
 			trafState = YELLOW_RED;
+		}
+		if (isTimerExpired(2)){
+			display7SegConfigMode();
+			setTimer(2, 80);
 		}
 		break;
 	case YELLOW_RED:
 		GreenToYellow1();
 		if (isButtonPressed(1)){
 			trafState = RED_GREEN;
+		}
+		if (isTimerExpired(2)){
+			display7SegConfigMode();
+			setTimer(2, 80);
 		}
 		break;
 	default:
