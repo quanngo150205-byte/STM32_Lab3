@@ -101,7 +101,7 @@ void fsm_manual_run(){
 		}
 		if (isTimerExpired(5)){
 			updateTimerBuffer(red_time * 100, (MAN_RED - 10) * 100);
-			setTimer(5, 500);
+			setTimer(5, 300);
 		}
 		if (isTimerExpired(4)){
 			display7SegLed();
@@ -126,16 +126,16 @@ void fsm_manual_run(){
 		}
 		if (isTimerExpired(5)){
 			updateTimerBuffer(yellow_time * 100, (MAN_YELLOW - 10) * 100);
-			setTimer(5, 500);
+			setTimer(5, 300);
 		}
 		if (isTimerExpired(4)){
 			display7SegLed();
 			setTimer(4, 80);
 		}
-		if (isButtonPressed(1) || isButtonLongPressed(1)){
+		if ((isButtonPressed(1) || isButtonLongPressed(1)) && yellow_time <= red_time){
 			yellow_time+=1;
 		}
-		if (isButtonPressed(2) || isButtonLongPressed(2)){
+		if ((isButtonPressed(2) || isButtonLongPressed(2)) && (yellow_time > 0)){
 			yellow_time-=1;
 		}
 		if (isButtonDoubleClicked(2)){
@@ -151,16 +151,16 @@ void fsm_manual_run(){
 		}
 		if (isTimerExpired(5)){
 			updateTimerBuffer(green_time * 100, (MAN_GREEN - 10) * 100);
-			setTimer(5, 500);
+			setTimer(5, 300);
 		}
 		if (isTimerExpired(4)){
 			display7SegLed();
 			setTimer(4, 80);
 		}
-		if (isButtonPressed(1) || isButtonLongPressed(1)){
+		if ((isButtonPressed(1) || isButtonLongPressed(1)) && (green_time < red_time - yellow_time)){
 			green_time+=1;
 		}
-		if (isButtonPressed(2) || isButtonLongPressed(2)){
+		if ((isButtonPressed(2) || isButtonLongPressed(2)) && (green_time > 0)){
 			green_time-=1;
 		}
 		if (isButtonDoubleClicked(2)){

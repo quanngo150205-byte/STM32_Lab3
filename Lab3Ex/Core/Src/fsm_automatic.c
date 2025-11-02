@@ -19,10 +19,11 @@ void fsm_automatic_run(){
 	switch (trafState){
 	case START:
 		if (isTimerExpired(3)){
-			HAL_GPIO_TogglePin(GPIOA, LED_R_A_Pin|LED_R_B_Pin|LED_R_C_Pin|LED_R_D_Pin);
+			HAL_GPIO_TogglePin(GPIOA, LED_Y_A_Pin|LED_Y_B_Pin|LED_Y_C_Pin|LED_Y_D_Pin);
 			setTimer(3, 250);
 		}
 		if (status == AUTO && isButtonPressed(2)){
+			HAL_GPIO_WritePin(GPIOA, LED_Y_A_Pin|LED_Y_B_Pin|LED_Y_C_Pin|LED_Y_D_Pin, GPIO_PIN_SET);
 			trafState = RED_GREEN;
 			setTimer(1, GREEN_TIME + YELLOW_TIME);
 			setTimer(2, GREEN_TIME);

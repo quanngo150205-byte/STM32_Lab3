@@ -14,7 +14,7 @@
 #define NORMAL_STATE    				GPIO_PIN_SET
 #define PRESSED_STATE   				GPIO_PIN_RESET
 #define DURATION_FOR_AUTO_INCREASING    100	   // tuong duong 1s
-#define DOUBLE_CLICK_INTERVAL 			30	   // tuong duong 300ms
+#define DOUBLE_CLICK_INTERVAL 			40	   // tuong duong 400ms
 
 
 void button_init(void);
