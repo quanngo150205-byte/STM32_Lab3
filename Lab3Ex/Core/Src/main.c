@@ -19,7 +19,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "global.h"
+#include "Task.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -95,13 +95,12 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  button_init();
-  status = INIT;
-  setTimers(1000);
+  doInit();
   while (1)
   {
     /* USER CODE END WHILE */
-
+	  BlinkLed();
+	  fsm_run_all();
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -251,6 +250,7 @@ static void MX_GPIO_Init(void)
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	timer_run();
 	getKeyInput();
+	button_event_scan();
 }
 /* USER CODE END 4 */
 
