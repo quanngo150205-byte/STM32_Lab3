@@ -20,7 +20,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "global.h"
-#include "fsm_menu.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -101,7 +100,6 @@ int main(void)
   setTimers(1000);
   while (1)
   {
-	  fsm_menu_run();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

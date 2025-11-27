@@ -152,4 +152,3 @@ int isButtonDoubleClicked(int index) {
     }
     return 0;
 }
-

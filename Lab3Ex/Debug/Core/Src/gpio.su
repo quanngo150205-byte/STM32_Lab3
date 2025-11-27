@@ -1,0 +1,4 @@
+gpio.c:10:6:PA5_toggle	8	static
+gpio.c:14:6:ALL_RED_toggle	8	static
+gpio.c:18:6:ALL_YELLOW_toggle	8	static
+gpio.c:22:6:ALL_GREEN_toggle	8	static

@@ -24,7 +24,7 @@ Core/Src/fsm_config.o: ../Core/Src/fsm_config.c ../Core/Inc/fsm_config.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
- ../Core/Inc/7seg.h ../Core/Inc/traffic_light.h
+ ../Core/Inc/7seg.h ../Core/Inc/traffic_light.h ../Core/Inc/gpio.h
 
 ../Core/Inc/fsm_config.h:
 
@@ -87,3 +87,5 @@ Core/Src/fsm_config.o: ../Core/Src/fsm_config.c ../Core/Inc/fsm_config.h \
 ../Core/Inc/7seg.h:
 
 ../Core/Inc/traffic_light.h:
+
+../Core/Inc/gpio.h:

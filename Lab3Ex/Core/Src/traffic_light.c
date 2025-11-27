@@ -7,8 +7,6 @@
 
 #include "traffic_light.h"
 
-traffic_state trafState = START;
-
 /* Ham chuyen den duong 1*/
 void YellowToRed1(){
 	HAL_GPIO_WritePin(GPIOA, LED_R_A_Pin, GPIO_PIN_RESET);

@@ -6,12 +6,14 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../Core/Src/7\ seg.c \
+../Core/Src/Task.c \
 ../Core/Src/button.c \
+../Core/Src/button_event.c \
 ../Core/Src/fsm_automatic.c \
 ../Core/Src/fsm_config.c \
 ../Core/Src/fsm_manual.c \
-../Core/Src/fsm_menu.c \
 ../Core/Src/global.c \
+../Core/Src/gpio.c \
 ../Core/Src/main.c \
 ../Core/Src/software_timer.c \
 ../Core/Src/stm32f1xx_hal_msp.c \
@@ -23,12 +25,14 @@ C_SRCS += \
 
 OBJS += \
 ./Core/Src/7\ seg.o \
+./Core/Src/Task.o \
 ./Core/Src/button.o \
+./Core/Src/button_event.o \
 ./Core/Src/fsm_automatic.o \
 ./Core/Src/fsm_config.o \
 ./Core/Src/fsm_manual.o \
-./Core/Src/fsm_menu.o \
 ./Core/Src/global.o \
+./Core/Src/gpio.o \
 ./Core/Src/main.o \
 ./Core/Src/software_timer.o \
 ./Core/Src/stm32f1xx_hal_msp.o \
@@ -40,12 +44,14 @@ OBJS += \
 
 C_DEPS += \
 ./Core/Src/7\ seg.d \
+./Core/Src/Task.d \
 ./Core/Src/button.d \
+./Core/Src/button_event.d \
 ./Core/Src/fsm_automatic.d \
 ./Core/Src/fsm_config.d \
 ./Core/Src/fsm_manual.d \
-./Core/Src/fsm_menu.d \
 ./Core/Src/global.d \
+./Core/Src/gpio.d \
 ./Core/Src/main.d \
 ./Core/Src/software_timer.d \
 ./Core/Src/stm32f1xx_hal_msp.d \
