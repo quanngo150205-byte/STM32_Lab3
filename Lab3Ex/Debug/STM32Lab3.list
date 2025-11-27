@@ -2006,7 +2006,7 @@ void fsm_automatic_run(){
 					display7SegLed();
  8000f94:	f7ff f8da 	bl	800014c <display7SegLed>
 					setTimer(TIMER_DISPLAY_7SEG, PERIOD_SCAN_7SEG);
- 8000f98:	2128      	movs	r1, #40	; 0x28
+ 8000f98:	2150      	movs	r1, #80	; 0x50
  8000f9a:	2004      	movs	r0, #4
  8000f9c:	f000 fd5e 	bl	8001a5c <setTimer>
 				}
@@ -2084,7 +2084,7 @@ void fsm_automatic_run(){
 					display7SegLed();
  8001022:	f7ff f893 	bl	800014c <display7SegLed>
 					setTimer(TIMER_DISPLAY_7SEG, PERIOD_SCAN_7SEG);
- 8001026:	2128      	movs	r1, #40	; 0x28
+ 8001026:	2150      	movs	r1, #80	; 0x50
  8001028:	2004      	movs	r0, #4
  800102a:	f000 fd17 	bl	8001a5c <setTimer>
 				}
@@ -2170,7 +2170,7 @@ void fsm_automatic_run(){
 					display7SegLed();
  80010c0:	f7ff f844 	bl	800014c <display7SegLed>
 					setTimer(TIMER_DISPLAY_7SEG, PERIOD_SCAN_7SEG);
- 80010c4:	2128      	movs	r1, #40	; 0x28
+ 80010c4:	2150      	movs	r1, #80	; 0x50
  80010c6:	2004      	movs	r0, #4
  80010c8:	f000 fcc8 	bl	8001a5c <setTimer>
 				}
@@ -2248,7 +2248,7 @@ void fsm_automatic_run(){
 					display7SegLed();
  800114c:	f7fe fffe 	bl	800014c <display7SegLed>
 					setTimer(TIMER_DISPLAY_7SEG, PERIOD_SCAN_7SEG);
- 8001150:	2128      	movs	r1, #40	; 0x28
+ 8001150:	2150      	movs	r1, #80	; 0x50
  8001152:	2004      	movs	r0, #4
  8001154:	f000 fc82 	bl	8001a5c <setTimer>
 				}
@@ -2394,7 +2394,7 @@ void fsm_config_run(){
             display7SegLed();
  8001242:	f7fe ff83 	bl	800014c <display7SegLed>
             setTimer(TIMER_DISPLAY_7SEG, PERIOD_SCAN_7SEG);
- 8001246:	2128      	movs	r1, #40	; 0x28
+ 8001246:	2150      	movs	r1, #80	; 0x50
  8001248:	2004      	movs	r0, #4
  800124a:	f000 fc07 	bl	8001a5c <setTimer>
         if (isButtonLongPressed(1) || isButtonPressed(1)){
@@ -2530,7 +2530,7 @@ void fsm_config_run(){
             display7SegLed();
  8001344:	f7fe ff02 	bl	800014c <display7SegLed>
             setTimer(TIMER_DISPLAY_7SEG, PERIOD_SCAN_7SEG);
- 8001348:	2128      	movs	r1, #40	; 0x28
+ 8001348:	2150      	movs	r1, #80	; 0x50
  800134a:	2004      	movs	r0, #4
  800134c:	f000 fb86 	bl	8001a5c <setTimer>
         if (isButtonLongPressed(1) || isButtonPressed(1)){
@@ -2675,7 +2675,7 @@ void fsm_config_run(){
             display7SegLed();
  8001468:	f7fe fe70 	bl	800014c <display7SegLed>
             setTimer(TIMER_DISPLAY_7SEG, PERIOD_SCAN_7SEG);
- 800146c:	2128      	movs	r1, #40	; 0x28
+ 800146c:	2150      	movs	r1, #80	; 0x50
  800146e:	2004      	movs	r0, #4
  8001470:	f000 faf4 	bl	8001a5c <setTimer>
         if (isButtonLongPressed(1) || isButtonPressed(1)){
@@ -2892,7 +2892,7 @@ void fsm_manual_run(){
  8001602:	2005      	movs	r0, #5
  8001604:	f000 fa2a 	bl	8001a5c <setTimer>
 			setTimer(TIMER_DISPLAY_7SEG, PERIOD_SCAN_7SEG);
- 8001608:	2128      	movs	r1, #40	; 0x28
+ 8001608:	2150      	movs	r1, #80	; 0x50
  800160a:	2004      	movs	r0, #4
  800160c:	f000 fa26 	bl	8001a5c <setTimer>
 			clearAllLed();
@@ -2941,7 +2941,7 @@ void fsm_manual_run(){
  8001652:	2005      	movs	r0, #5
  8001654:	f000 fa02 	bl	8001a5c <setTimer>
 			setTimer(TIMER_DISPLAY_7SEG, PERIOD_SCAN_7SEG);
- 8001658:	2128      	movs	r1, #40	; 0x28
+ 8001658:	2150      	movs	r1, #80	; 0x50
  800165a:	2004      	movs	r0, #4
  800165c:	f000 f9fe 	bl	8001a5c <setTimer>
 			clearAllLed();
@@ -2988,7 +2988,7 @@ void fsm_manual_run(){
  800169c:	2005      	movs	r0, #5
  800169e:	f000 f9dd 	bl	8001a5c <setTimer>
 			setTimer(TIMER_DISPLAY_7SEG, PERIOD_SCAN_7SEG);
- 80016a2:	2128      	movs	r1, #40	; 0x28
+ 80016a2:	2150      	movs	r1, #80	; 0x50
  80016a4:	2004      	movs	r0, #4
  80016a6:	f000 f9d9 	bl	8001a5c <setTimer>
 			clearAllLed();
@@ -3037,7 +3037,7 @@ void fsm_manual_run(){
  80016ea:	2005      	movs	r0, #5
  80016ec:	f000 f9b6 	bl	8001a5c <setTimer>
 			setTimer(TIMER_DISPLAY_7SEG, PERIOD_SCAN_7SEG);
- 80016f0:	2128      	movs	r1, #40	; 0x28
+ 80016f0:	2150      	movs	r1, #80	; 0x50
  80016f2:	2004      	movs	r0, #4
  80016f4:	f000 f9b2 	bl	8001a5c <setTimer>
 			clearAllLed();
@@ -3084,7 +3084,7 @@ void fsm_manual_run(){
  8001734:	2005      	movs	r0, #5
  8001736:	f000 f991 	bl	8001a5c <setTimer>
 			setTimer(TIMER_DISPLAY_7SEG, PERIOD_SCAN_7SEG);
- 800173a:	2128      	movs	r1, #40	; 0x28
+ 800173a:	2150      	movs	r1, #80	; 0x50
  800173c:	2004      	movs	r0, #4
  800173e:	f000 f98d 	bl	8001a5c <setTimer>
 			clearAllLed();
